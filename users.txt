@@ -1,0 +1,3 @@
+user:admin,,pass:admin,,perm:a;
+user:usr1,,pass:usr1,,perm:u;
+user:guest,,pass:,,perm:u;
