@@ -7,7 +7,7 @@ session::session()
     password = "";
     account_info = "guest account info";
     path = "users.txt";
-    hello();
+    active = false;
 }
 
 void session::create_acc()
@@ -70,7 +70,15 @@ void session::init()
 
 void session::login()
 {
-    
+    std::string name;
+    std::string pass;
+    if(this->is_active())
+    {
+        std::cout << "Account logged in, to change account log out first";
+        return;
+    }
+    get_account_info(name, pass);
+
 
 }
 
@@ -80,7 +88,18 @@ void session::logout()
     username = "guest";
     password = "";
     account_info = "guest account info";
+    active = false;
     
+}
+
+void session::find_acc(std::string name, std::string pass)
+{
+
+}
+
+bool session::is_active()
+{
+    return active;
 }
 
 
@@ -89,7 +108,11 @@ void permission_denied()
     std::cout << "Permission denied, no further actions" << std::endl;
 }
 
-void hello()
+void get_account_info(std::string& username, std::string& password)
 {
-    std::cout << "Hello from account file!" << std::endl;
+    std::cout << "Enter username: ";
+    std::cin >> username;
+    std::cout << "Enter password: ";
+    std::cin >> password;
+
 }
